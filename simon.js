@@ -5,12 +5,16 @@ let  playerChoice = [];
 let inGame = false;
 
 
-document.addEventListener("keyup", function() {
+function startGame() {
     if (!inGame) {
         setTimeout(nextSequence, 100);
         inGame = true;
     }
-});
+}
+
+document.addEventListener("keyup", startGame);
+document.addEventListener('touchstart', startGame);
+
 
 
 for (let i = 0; i < colorList.length; i++) {
