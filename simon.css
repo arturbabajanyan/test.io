@@ -1,5 +1,4 @@
 
-
 body {
     text-align: center;
     background-color: #011F3F;
@@ -58,4 +57,26 @@ body {
   .pressed {
     box-shadow: 0 0 20px white;
     background-color: grey;
+  }
+
+  @media (max-width: 904px) {
+    #level-title {
+      font-size: 1.5rem;
+    }
+    .btn {
+      margin: 5px;
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  @media (min-width: 905px) and (max-width: 1200px) {
+    #level-title {
+      font-size: 2rem;
+    }
+    .btn {
+      margin: 15px;
+      height: 150px;
+      width: 150px;
+    }
   }
