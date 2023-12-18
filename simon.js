@@ -3,17 +3,18 @@ let level = 0;
 let computerChoice = [];
 let  playerChoice = [];
 let inGame = false;
+let rightAnswer = 0;
 
 
-function startGame() {
+function startGame(e) {
     if (!inGame) {
         setTimeout(nextSequence, 100);
         inGame = true;
     }
 }
 
-document.addEventListener("keyup", startGame);
-document.addEventListener('touchstart', startGame);
+document.addEventListener('keyup', startGame);
+document.querySelector('h1').addEventListener('click', startGame);
 
 
 
@@ -27,22 +28,18 @@ for (let i = 0; i < colorList.length; i++) {
 
 
 function  checkAnswers(currentLevel) {
-    // console.log(computerChoice.length);
-    // console.log(playerChoice.length);
     if (computerChoice[currentLevel] === playerChoice[currentLevel]) {
         if (computerChoice.length === playerChoice.length) {
-            // console.log("perfect");
-            setTimeout(nextSequence, 1000);
+            rightAnswer = setTimeout(nextSequence, 1000);
         }
     } else {
-        // console.log('wrong answer');
         document.body.classList.add('game-over');
         setTimeout(() => document.body.classList.remove('game-over'), 100);
-        document.getElementById("level-title").innerHTML = `${angryFace} Game Over ${angryFace}`;
+        document.getElementById("level-title").innerHTML = `${sadFace} Game Over ${sadFace}`;
         if ((level - 1) < 0) {
-            document.getElementById("level-title").innerText += `\n\nYou did ${level} correct matches\n\nPress Any Key To Start Again`;
+            document.getElementById("level-title").innerText += `\n${level} correct matches\nPress Any Key or Click Here To Start Again`;
         } else {
-            document.getElementById("level-title").innerText += `\n\nYou did ${level-1} correct matches\n\nPress Any Key To Start Again`;
+            document.getElementById("level-title").innerText += `\n${level-1} correct matches\nPress Any Key or Click Here To Start Again`;
         }
         startOver();
     }
@@ -50,6 +47,9 @@ function  checkAnswers(currentLevel) {
 
 
 function startOver() {
+    if (playerChoice.length > computerChoice.length) {
+        clearTimeout(rightAnswer);
+    }
     level = 0;
     computerChoice = [];
     inGame = false;

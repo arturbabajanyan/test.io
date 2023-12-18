@@ -8,6 +8,7 @@ body {
     font-family: 'Press Start 2P', cursive;
     font-size: 3rem;
     margin:  5%;
+    line-height: 1.5;
     color: #FEF2BF;
   }
   
@@ -61,12 +62,19 @@ body {
 
   @media (max-width: 904px) {
     #level-title {
+      margin-top: 20%;
       font-size: 1.5rem;
+    }
+    .row {
+      width: 400px;
+    }
+    .container {
+      width: 400px;
     }
     .btn {
       margin: 5px;
       height: 100px;
-      width: 100px;
+      width: 100px; 
     }
   }
 
