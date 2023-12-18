@@ -63,6 +63,7 @@ body {
   @media (max-width: 904px) {
     #level-title {
       margin-top: 20%;
+      margin-bottom: 20%;
       font-size: 1.5rem;
     }
     .row {
